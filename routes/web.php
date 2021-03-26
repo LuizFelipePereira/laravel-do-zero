@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\System\MainController as SiteMain;
-use App\Http\Controllers\Site\MainController as PanelMain;
+use App\Http\Controllers\Panel\MainController as PanelMain;
+use App\Http\Controllers\Site\MainController as SiteMain;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 Route::name("site.")->group(function () {
 
      #Rotas do Controller Main
-     Route::name("main")->group(function () {
+     Route::name("main.")->group(function () {
 
           #Rota Index do Site
           Route::get('/', [SiteMain::class, "index"])->name("index");
@@ -35,7 +35,7 @@ Auth::routes();
 Route::middleware("auth")->name("panel.")->group(function () {
 
      #Rotas do Controller Main
-     Route::name("main")->group(function () {
+     Route::name("main.")->group(function () {
 
           #Rota Index do Painel
           Route::get('/painel-de-controle/', [PanelMain::class, "index"])->name("index");
@@ -49,7 +49,7 @@ Route::middleware("auth")->name("panel.")->group(function () {
 Route::name("system.")->group(function () {
 
      #Rotas do Controller Main
-     Route::name("main")->group(function () {
+     Route::name("main.")->group(function () {
 
           #Rota Index do Controle de Sistema
           Route::get('/system/', [PanelMain::class, "index"])->name("index");
