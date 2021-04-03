@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers\Panel;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class MainController extends Controller
 {
+
+     protected $request;
      /**
       * Create a new controller instance.
       *
       * @return void
       */
-     public function __construct()
+     public function __construct(Request $request)
      {
+          $this->request = $request;
      }
+
 
      /**
       * Show the application dashboard.
@@ -23,6 +28,6 @@ class MainController extends Controller
       */
      public function index()
      {
-          return view('panel.main.index');
+          return view($this->request->route()->getName() );
      }
 }

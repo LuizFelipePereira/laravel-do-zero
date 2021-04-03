@@ -23,9 +23,8 @@
   * sidebar-mini
 -->
 
-<body class="hold-transition sidebar-collapse">
+<body class="hold-transition">
      <div class="wrapper">
-
           @include("panel.template.navbar")
           @include("panel.template.aside-left")
           @yield('content')
